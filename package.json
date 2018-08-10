@@ -1,0 +1,22 @@
+{
+  "name": "conjectron",
+  "version": "0.1.0",
+  "description": "Conjugation app",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "conjugation",
+    "verbs"
+  ],
+  "author": "Abdelkrime Aries",
+  "license": "Apache-2.0",
+  "devDependencies": {
+    "electron": "^2.0.7"
+  },
+  "dependencies": {
+    "jslingua": "^0.10.1"
+  }
+}
