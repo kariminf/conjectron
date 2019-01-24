@@ -5,8 +5,24 @@
   <title>JsLingua-Morphology</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="jslingua.css">
+  <link rel="stylesheet" href="window.css">
+  <link rel="stylesheet" href="titlebar.css">
 </head>
 <body>
+
+    <div id="title-bar">
+    <div id="title">
+        <span style="vertical-align: middle;">
+            <img src="" style="width:20px;height:20px;"/>
+        </span>
+        Conjectron
+    </div>
+     <div id="title-bar-btns">
+          <button id="min-btn">-</button>
+          <button id="max-btn">+</button>
+          <button id="close-btn">x</button>
+     </div>
+</div>
 
   <div class="k-fs k-1">
     <h1><span>Language</span></h1>
@@ -140,6 +156,8 @@ function conjugate() {
 loading();
 
 </script>
+
+<script src="titlebar.js" type="text/javascript" ></script>
 
 </body>
 </html>
