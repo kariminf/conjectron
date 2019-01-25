@@ -1,25 +1,40 @@
-#title-bar {
+#content {
+    position: fixed;
+    top: 0px;
+    bottom: 0px;
+    right: 0px;
+    left: 0px;
+}
+#info-bar {
+    background-color: black;
     -webkit-app-region: drag;
+    min-width: 200px;
+    width: 30%;
+    float: right;
+    height: 100%;
+    position:relative;
+    color: white;
+}
+#title-bar {
     height: 40px;
-    text-align: center;
+    text-align: left;
     line-height: 40px;
-    vertical-align: middle;
-    background-color: #03a9f4;
+    background-color: red;
     padding: none;
     margin: 0px;
 }
 
-#title {
-    position: fixed;
-    top: 0px;
-    left: 6px;
-    color:white;
-
+#ctrl-btns {
+    background: green;
+    text-align: right;
 }
 
-#title-bar-btns {
+#ctrl-btns button {
     -webkit-app-region: no-drag;
-    position: fixed;
-    top: 0px;
-    right: 6px;
+}
+
+#content-bar {
+    background-color: #6500A0;
+    height: 100%;
+    width: auto;
 }
