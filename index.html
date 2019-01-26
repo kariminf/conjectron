@@ -3,33 +3,34 @@
 <head>
     <meta charset="UTF-8">
     <title>Conjectron</title>
-    <link rel="stylesheet" href="window.css">
-    <link rel="stylesheet" href="titlebar.css">
+    <link rel="stylesheet" href="index.css">
 </head>
 <body>
 
     <div id="content">
 
-    <div id="info-bar">
-        <div id="ctrl-btns">
-             <button id="min-btn">🗕</button>
-             <button id="max-btn">🗖</button>
-             <button id="close-btn">⛝</button>
+    <div id="sidebar">
+        <div id="titlebar">
         </div>
-        <div id="title">
-            <span>
-                <img src="" style="width:20px;height:20px;"/>
-            </span>
-            Conjectron
+        <div class="sec">
+            <label>Language</label>
+            <select id="lang"></select>
+        </div>
+        <div class="sec">
+            <label>Verb</label>
+            <input type="text" id="verb" />
+            <button id="conj">Conjugate</button>
         </div>
     </div><!-- info-bar -->
 
     <div id="content-bar">
-qwqwq
     </div>
 
 </div> <!-- content -->
 
-<script src="titlebar.js" type="text/javascript" ></script>
+<script>
+    require("./titlebar/titlebar");
+
+</script>
 
 </html>

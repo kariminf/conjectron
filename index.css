@@ -1,3 +1,8 @@
+body {
+    padding: 0px;
+    margin: 0px;
+}
+
 #content {
     position: fixed;
     top: 0px;
@@ -5,23 +10,32 @@
     right: 0px;
     left: 0px;
 }
-#info-bar {
+
+#sidebar {
     background-color: black;
     -webkit-app-region: drag;
     min-width: 200px;
     width: 30%;
     float: right;
     height: 100%;
-    position:relative;
+    /*position:relative;*/
     color: white;
 }
+
+input, select, button {
+    -webkit-app-region: no-drag;
+    border: 1;
+    background: none;
+    box-shadow: none;
+    border-radius: 5px;
+    border-color: #6500A0;
+    color: white;
+}
+
 #title-bar {
-    height: 40px;
     text-align: left;
-    line-height: 40px;
     background-color: red;
-    padding: none;
-    margin: 0px;
+    margin: 10px;
 }
 
 #ctrl-btns {
@@ -29,12 +43,16 @@
     text-align: right;
 }
 
-#ctrl-btns button {
-    -webkit-app-region: no-drag;
-}
-
 #content-bar {
     background-color: #6500A0;
     height: 100%;
     width: auto;
+}
+
+.sec {
+    margin: 10px;
+}
+
+.sec * {
+    width: 100%;
 }
