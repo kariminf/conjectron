@@ -17,6 +17,7 @@
     "electron": "^4.0.2"
   },
   "dependencies": {
-    "jslingua": "^0.10.1"
+    "jslingua": "^0.10.1",
+    "settings-store": "^1.4.1"
   }
 }

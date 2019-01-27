@@ -32,16 +32,6 @@ input, select, button {
     color: white;
 }
 
-#title-bar {
-    text-align: left;
-    background-color: red;
-    margin: 10px;
-}
-
-#ctrl-btns {
-    background: green;
-    text-align: right;
-}
 
 #content-bar {
     background-color: #6500A0;

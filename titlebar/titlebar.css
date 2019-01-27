@@ -1,0 +1,19 @@
+#titlebar {
+    text-align: left;
+    margin: 2px;
+}
+
+#ctrl-btns {
+    text-align: right;
+    padding: 5px;
+}
+
+#ctrl-btns button {
+    color: #6500A0;
+    font-weight: bolder;
+}
+
+#ctrl-btns button:hover {
+    color: black;
+    background: #6500A0;
+}
