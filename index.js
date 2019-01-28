@@ -1,5 +1,5 @@
-const jslingua = require("jslingua");
-
+//const conj = require("./conj/conj");
+const remote = require("electron").remote;
 const settings = require("settings-store");
 
 settings.init({
@@ -8,6 +8,6 @@ settings.init({
     reverseDNS:    "kariminf.conjectron" //required for macOS
 });
 
-let lang = settings.value("lang", "ar");
+//conj.setLanguage(lang);
 
-document.getElementById("lang").value = lang;
+//conj.bindOutput(document.getElementById("content-bar"));
