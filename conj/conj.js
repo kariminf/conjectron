@@ -1,15 +1,18 @@
 const jslingua = require("jslingua");
 
 let outputDiv = null;
-let morpho = null;
+let morpho = jslingua.nserv("Morpho", "ar");
 
-function bindOutput(outDiv){
+module.exports.bindOutput = function (outDiv){
     outputDiv = outDiv;
 }
 
-function setLanguage(lang) {
+module.exports.setLanguage = function (lang) {
+    morpho = jslingua.nserv("Morpho", lang);
 }
 
-function process(verb, lang) {
-
+module.exports.process = function (verb) {
+    //if (outputDiv == null) return ;
+    //outputDiv.innerHTML = verb;
+    return verb;
 }

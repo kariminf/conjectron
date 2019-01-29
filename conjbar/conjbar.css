@@ -1,25 +1,3 @@
-#titlebar {
-    text-align: left;
-    margin: 2px;
-}
-
-#ctrl-btns {
-    text-align: right;
-    padding: 5px;
-}
-
-#ctrl-btns button {
-    color: #6500A0;
-    font-weight: bolder;
-    border: 1;
-    background: none;
-    box-shadow: none;
-    border-radius: 5px;
-    border-color: #6500A0;
-    color: white;
-}
-
-#ctrl-btns button:hover {
-    color: black;
+#conjbar select option {
     background: #6500A0;
 }
