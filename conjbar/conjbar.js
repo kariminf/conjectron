@@ -12,7 +12,7 @@ settings.init({
 let content = fs.readFileSync(__dirname + "/conjbar.html", "utf8");
 document.getElementById("conjbar").innerHTML = content;
 
-let lang = settings.value("lang", "ar");
+let lang = settings.value("lang", "ara");
 
 document.getElementById("lang").value = lang;
 
@@ -34,7 +34,13 @@ if (!document.getElementById(cssId))
 }
 
 let verbin = document.getElementById("verb");
+let langin = document.getElementById("lang");
 
 document.getElementById("conj").addEventListener("click", function (e) {
     ipcRenderer.send("process", verbin.value);
-  });
+});
+
+langin.addEventListener("change", function (e) {
+    console.log("on change");
+    ipcRenderer.send("setLanguage", langin.value);
+});

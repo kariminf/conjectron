@@ -1,0 +1,25 @@
+<div class="ctab">
+    <h1>{indicative}</h1>
+    <table dir="ltr">
+        <tr>
+            <th></th>
+            <th colspan="2">{active}</th>
+            <th colspan="2">{passive}</th>
+        </tr>
+        <tr>
+            <th></th>
+            <th>{affirmative}</th>
+            <th>{negative}</th>
+        </tr>
+        <tr>
+            <th>I</th>
+            <td><%= morpho.conjugate(verb, {
+                person:"first",
+                number: "singular",
+                tense:"past"
+            }); %></td>
+            <td><%= verb %></td>
+        </tr>
+
+    </table>
+</div>

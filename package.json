@@ -8,8 +8,8 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
-  "type": "git",
-  "url": "git://github.com/kariminf/conjectron.git"
+    "type": "git",
+    "url": "git://github.com/kariminf/conjectron.git"
   },
   "keywords": [
     "conjugation",
@@ -21,6 +21,7 @@
     "electron": "^4.0.2"
   },
   "dependencies": {
+    "ejs": "^2.6.1",
     "jslingua": "^0.10.1",
     "mustache": "^3.0.1",
     "settings-store": "^1.4.1"
