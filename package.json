@@ -22,6 +22,7 @@
   },
   "dependencies": {
     "ejs": "^2.6.1",
+    "i18n": "^0.8.3",
     "jslingua": "^0.10.1",
     "mustache": "^3.0.1",
     "settings-store": "^1.4.1"
