@@ -1,3 +1,8 @@
 {
-    "affirmative": "Affirmative"
+	"active": "Active",
+	"passive": "Passive",
+	"affirmative": "Affirmative",
+	"negtive": "Negative",
+	"negative": "negative",
+	"indicative simple": "indicative simple"
 }

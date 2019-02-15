@@ -1,27 +1,77 @@
-<div class="ctab">
-    <h1>{indicative}</h1>
-    <table dir="ltr">
-        <tr>
-            <th></th>
-            <th colspan="2">{active}</th>
-            <th colspan="2">{passive}</th>
-        </tr>
-        <tr>
-            <th></th>
-            <th><%= i18n.__("affirmative") %></th>
-            <th>{negative}</th>
-            <th><%= i18n.__("affirmative") %></th>
-            <th>{negative}</th>
-        </tr>
-        <tr>
-            <th>I</th>
-            <td><%= morpho.conjugate(verb, {
-                person:"first",
-                number: "singular",
-                tense:"past"
-            }); %></td>
-            <td><%= verb %></td>
-        </tr>
+<% let forms = {
+    "ind_simp": {
+        desc: "indicative simple",
+        mood: "indicative",
+        aspect: "simple"
+    },
+    "ind_perf": {
+        desc: "indicative perfect",
+        mood: "indicative",
+        aspect: "perfect"
+    },
+    "ind_cont": {
+        desc: "indicative continuous",
+        mood: "indicative",
+        aspect: "continuous"
+    }
+};
+const pronouns = morpho.lopt("Pronoun"),
+    tenses = ["present", "past", "future"];
 
-    </table>
+let conj = function(pronoun, form, tense, voice, negated=0) {
+    let opts = {
+        negated: negated,
+        voice: voice,
+        tense, tense
+    };
+    opts = Object.assign(opts, pronoun, form);
+    return morpho.conj(verb, opts);
+}
+
+let disp = "";
+%>
+<div class="ccontainer">
+
+    <div class="w3-bar w3-black">
+        <% for (fi in forms) { let form = forms[fi]; %>
+            <button class="w3-bar-item w3-button"
+            onclick="openForm('<%= fi %>')"><%= fi %></button>
+        <% } %>
+    </div>
+
+    <% for (fi in forms) { let form = forms[fi]; %>
+        <div class="cform" id=<%= fi %> style=<%= disp %> >
+        <% disp = "display:none" %>
+
+            <h1><%= i18n.__(form.desc) %></h1>
+            <% for (ti in tenses){ let tense = tenses[ti]; %>
+            <div class="ctense">
+            <h2><%= i18n.__(tense); %></h2>
+            <table>
+                <tr>
+                    <th></th>
+                    <th colspan="2"><%= i18n.__("active") %></th>
+                    <th colspan="2"><%= i18n.__("passive") %></th>
+                </tr>
+                <tr>
+                    <th></th>
+                    <th><%= i18n.__("affirmative") %></th>
+                    <th><%= i18n.__("negative") %></th>
+                    <th><%= i18n.__("affirmative") %></th>
+                    <th><%= i18n.__("negative") %></th>
+                </tr>
+                <% for (pi in pronouns){ let pronoun = pronouns[pi]; %>
+                    <tr>
+                        <th><%= morpho.goptname("Pronoun", pronoun); %></th>
+                        <td><%= conj(pronoun, form, tense, "active", 0); %></td>
+                        <td><%= conj(pronoun, form, tense, "active", 1); %></td>
+                        <td><%= conj(pronoun, form, tense, "passive", 0); %></td>
+                        <td><%= conj(pronoun, form, tense, "passive", 1); %></td>
+                    </tr>
+                <% } %>
+            </table>
+            </div>
+            <% } %>
+        </div>
+    <% } %>
 </div>

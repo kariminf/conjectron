@@ -16,8 +16,6 @@ function createWindow () {
     win.loadFile("index.html");
 }
 
-app.commandLine.appendSwitch("lang", "ar");
-
 
 ipcMain.on("setLanguage", (event, lang) => {
     conj.setLanguage(lang);

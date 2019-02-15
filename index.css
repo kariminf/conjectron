@@ -37,6 +37,7 @@ input, select, button {
     background-color: #6500A0;
     height: 100%;
     width: auto;
+    overflow-y: auto;
 }
 
 .sec {

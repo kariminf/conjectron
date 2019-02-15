@@ -21,8 +21,7 @@ ipcRenderer.send("setLanguage", lang);
 
 //Load titlebar CSS content
 let cssId = "conjbar-css";
-if (!document.getElementById(cssId))
-{
+if (!document.getElementById(cssId)) {
     let head  = document.getElementsByTagName("head")[0];
     let link  = document.createElement("link");
     link.id   = cssId;

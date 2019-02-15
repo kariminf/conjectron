@@ -21,12 +21,11 @@ module.exports.setLanguage = function (lang) {
 }
 
 i18n.configure({
-    locales:["eng"],
     directory: __dirname + "/../locales",
     prefix: "conj-"
 });
 
-i18n.setLocale("eng");
+i18n.setLocale("ara");
 
 /*ejs.filters.conj = function(obj) {
   return morpho.conjugate(obj.verb,obj.opt);
