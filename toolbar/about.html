@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>About</title>
+    <style type="text/css">
+    body {
+        background-color: black;
+        color: white;
+    }
+    #content {
+        -webkit-app-region: drag;
+        -webkit-user-select: none;
+        position:fixed;
+        top: 0;
+        left:0;
+        right: 0;
+        bottom: 50px;
+    }
+    #end {
+        position:fixed;
+        bottom: 0;
+        height: 50px;
+        text-align: center;
+    }
+    </style>
+</head>
+<body>
+
+    <div id="content">
+        <h1>Conjectron</h1>
+    </div> <!-- content -->
+    <div id="end">
+        <button id="close">Close</button>
+    </div>
+
+    <script>
+        require("./about");
+    </script>
+
+</html>

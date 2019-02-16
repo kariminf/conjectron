@@ -1,14 +1,15 @@
-body {
+body, html {
     padding: 0px;
     margin: 0px;
+    border-radius: 5px;
 }
 
 #content {
     position: fixed;
-    top: 0px;
-    bottom: 0px;
-    right: 0px;
-    left: 0px;
+    top: 1px;
+    bottom: 1px;
+    right: 1px;
+    left: 1px;
 }
 
 #sidebar {
@@ -22,16 +23,6 @@ body {
     color: white;
 }
 
-input, select, button {
-    -webkit-app-region: no-drag;
-    border: 1;
-    background: none;
-    box-shadow: none;
-    border-radius: 5px;
-    border-color: #6500A0;
-    color: white;
-}
-
 
 #content-bar {
     background-color: #6500A0;
@@ -41,9 +32,43 @@ input, select, button {
 }
 
 .sec {
-    margin: 10px;
+    margin: 2px;
+    padding: 2px;
 }
+
 
 .sec * {
     width: 100%;
+    padding: 2px;
+    font-size: 16px;
+    margin: 2px;
+    box-sizing : border-box;
+    -webkit-app-region: no-drag;
+    border-width: 2px;
+    background: none;
+    box-shadow: none;
+    outline: none;
+    border-radius: 2px;
+    border-color: #6500A0;
+    color: white;
+}
+
+a.abutton {
+    -webkit-app-region: no-drag;
+    display: inline-block;
+    color: #6500A0;
+    font-size: 20px;
+    border:2px solid #6500A0;
+    background: none;
+    width:25px;
+    height:25px;
+    border-radius: 5px;
+    text-decoration: none;
+    text-align: center;
+    vertical-align: middle;
+}
+
+a.abutton:hover {
+    color: black;
+    background: #6500A0;
 }

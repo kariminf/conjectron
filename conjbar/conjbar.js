@@ -1,12 +1,7 @@
-const {ipcRenderer} = require("electron");
+const {ipcRenderer, remote} = require("electron");
 const fs = require("fs");
-const settings = require("settings-store");
 
-settings.init({
-    appName:       "Conjectron", //required,
-    publisherName: "kariminf", //optional
-    reverseDNS:    "kariminf.conjectron" //required for macOS
-});
+const settings = remote.getGlobal("settings");
 
 //Load titlebar HTML content
 let content = fs.readFileSync(__dirname + "/conjbar.html", "utf8");

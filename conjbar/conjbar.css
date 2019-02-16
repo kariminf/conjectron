@@ -1,3 +1,14 @@
+
 #conjbar select option {
     background: #6500A0;
+    color: white;
+    font-size: 16px;
+}
+
+#conj {
+    width:100%;
+    
+}
+
+#conj:hover {
 }

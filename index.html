@@ -11,6 +11,7 @@
 
         <div id="sidebar">
             <div id="titlebar"></div>
+            <div id="toolbar"></div>
             <div id="conjbar"></div>
         </div>
         <div id="content-bar"></div>
@@ -19,8 +20,17 @@
 
 <script>
     require("./titlebar/titlebar");
+    require("./toolbar/toolbar");
     require("./conjbar/conjbar");
     require("./index");
+    function openForm(frm) {
+      let i;
+      let divforms = document.getElementsByClassName("cform");
+      for (i = 0; i < divforms.length; i++) {
+        divforms[i].style.display = "none";
+      }
+      document.getElementById(frm).style.display = "block";
+    }
 </script>
 
 </html>

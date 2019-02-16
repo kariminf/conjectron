@@ -1,6 +1,6 @@
 const remote = require("electron").remote;
 const fs = require("fs");
-const settings = require("settings-store");
+const settings = remote.getGlobal("settings");
 
 //Load titlebar HTML content
 let content = fs.readFileSync(__dirname + "/titlebar.html", "utf8");

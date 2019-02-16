@@ -1,22 +1,13 @@
-#titlebar {
+#toolbar {
     text-align: left;
     margin: 2px;
-    font-size: 20px;
-    font-weight: bold;
 }
 
-#titlebar::after {
-    content: "";
-    display:block;
-    height: 50px;
+#tool-btns {
+    padding: 2px;
 }
 
-#ctrl-btns {
-    text-align: right;
-    padding: 5px;
-}
-
-#ctrl-btns a {
+#tool-btns a {
     -webkit-app-region: no-drag;
     display: inline-block;
     color: #6500A0;
@@ -31,12 +22,7 @@
     vertical-align: middle;
 }
 
-#ctrl-btns a:hover {
+#tool-btns a:hover {
     color: black;
     background: #6500A0;
-}
-
-#icon img {
-    width: 30px;
-    height: 30px;
 }
