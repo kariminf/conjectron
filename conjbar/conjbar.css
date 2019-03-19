@@ -7,8 +7,66 @@
 
 #conj {
     width:100%;
-    
+
 }
 
 #conj:hover {
+}
+
+.cselector {
+    height: 20px;
+    overflow: hidden;
+  border: 1px solid #ccc;
+  background-color: #f1f1f1;
+}
+
+.cselector a.atab {
+    -webkit-app-region: no-drag;
+    display: inline-block;
+    color: #6500A0;
+    font-size: 20px;
+    border:2px solid #6500A0;
+    height:25px;
+    text-decoration: none;
+    text-align: center;
+    vertical-align: middle;
+
+    background-color: inherit;
+  float: left;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 1 px;
+  transition: 0.3s;
+}
+
+/* Change background color of buttons on hover */
+.cselector a.atab:hover {
+  background-color: #ddd;
+}
+
+/* Create an active/current tablink class */
+.cselector a.atab:active {
+  background-color: #FFFF00;
+}
+
+.ccontainer {
+    overflow-y:auto;
+    height: calc(100% - 26px);
+    margin-right: 3px;
+}
+
+.ccontainer::-webkit-scrollbar-track
+{
+	background-color: #000000;
+}
+
+.ccontainer::-webkit-scrollbar
+{
+	width: 12px;
+}
+
+.ccontainer::-webkit-scrollbar-thumb
+{
+	background-color: #FFFF00;
 }

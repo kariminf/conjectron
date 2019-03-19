@@ -30,14 +30,16 @@ let conj = function(pronoun, form, tense, voice, negated=0) {
 
 let disp = "";
 %>
-<div class="ccontainer">
 
-    <div class="w3-bar w3-black">
-        <% for (fi in forms) { let form = forms[fi]; %>
-            <button class="w3-bar-item w3-button"
-            onclick="openForm('<%= fi %>')"><%= fi %></button>
-        <% } %>
-    </div>
+
+<div class="cselector">
+    <% for (fi in forms) { let form = forms[fi]; %>
+        <a class="atab" href="#"
+        onclick="openForm('<%= fi %>')"><%= fi %></a>
+    <% } %>
+</div>
+
+<div class="ccontainer">
 
     <% for (fi in forms) { let form = forms[fi]; %>
         <div class="cform" id=<%= fi %> style=<%= disp %> >

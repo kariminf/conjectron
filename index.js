@@ -5,4 +5,5 @@ let out = document.getElementById("content-bar");
 
 ipcRenderer.on("process-reply", (event, content) => {
     out.innerHTML = content;
+
 });

@@ -1,16 +1,17 @@
-<div class="ctab">
-    <h1>{title}</h1>
-    <table dir="rtl">
-        <tr>
-            <th></th>
-            <th colspan="2">{active}</th>
-            <th colspan="2">{passive}</th>
-        </tr>
-        <tr>
-            <th></th>
-            <th>{affirmative}</th>
-            <th>{negative}</th>
-        </tr>
-        
-    </table>
+<ul class="tab-nav">
+  <li>
+    <a class="button active" href="#one">Tab 1</a>
+  </li>
+  <li>
+    <a class="button" href="#two">Tab 2</a>
+  </li>
+  <li>
+    <a class="button" href="#three">Tab 3</a>
+  </li>
+</ul>
+
+<div class="tab-content">
+  <div class="tab-pane active" id="one">cont1</div>
+  <div class="tab-pane" id="two">cont2</div>
+  <div class="tab-pane" id="three">cont3</div>
 </div>
