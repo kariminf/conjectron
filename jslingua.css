@@ -221,17 +221,14 @@ h1, h2, h3 {
 
 .k-1 {
   width: 100%;
-
 }
 
 @media only screen and (min-width: 768px) {
   .k-l-3 {
-    width: 30%;
     width: calc(100%/3 - 1em);
   }
 
   .k-l-2 {
-    width: 45%;
     width: calc(50% - 1em);
   }
 }

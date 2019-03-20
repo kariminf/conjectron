@@ -1,17 +1,143 @@
-<ul class="tab-nav">
-  <li>
-    <a class="button active" href="#one">Tab 1</a>
-  </li>
-  <li>
-    <a class="button" href="#two">Tab 2</a>
-  </li>
-  <li>
-    <a class="button" href="#three">Tab 3</a>
-  </li>
-</ul>
+<% let forms = {
+  "indicatif": {
+    mood: "indicative",
+    frm: [
+    {
+      desc: "présent",
+      tense: "present",
+      aspect: "simple"
+    },
+    {
+      desc: "passé composé",
+      tense: "present",
+      aspect: "perfect"
+    },
+    {
+      desc: "imparfait",
+      tense: "present",
+      aspect: "imperfect"
+    },
+    {
+      desc: "plus-que-parfait",
+      tense: "past",
+      aspect: "perfect",
+      period: "long"
+    },
+    {
+      desc: "passé simple",
+      tense: "past",
+      aspect: "simple"
+    },
+    {
+      desc: "passé antérieur",
+      tense: "past",
+      aspect: "perfect",
+      period: "short"
+    },
+    {
+      desc: "futur simple",
+      tense: "future",
+      aspect: "simple"
+    },
+    {
+      desc: "futur antérieur",
+      tense: "future",
+      aspect: "perfect"
+    }
+    ]
+  },
+  "subjonctif": {
+    mood: "subjunctive",
+    frm: [
+    {
+      desc: "présent",
+      tense: "present",
+      aspect: "simple"
+    },
+    {
+      desc: "passé",
+      tense: "past",
+      aspect: "simple"
+    },
+    {
+      desc: "imparfait",
+      tense: "present",
+      aspect: "imperfect"
+    },
+    {
+      desc: "plus-que-parfait",
+      tense: "past",
+      aspect: "perfect"
+    }
+    ]
+  },
+  "conditionel": {
+    mood: "conditional",
+    frm: [
+    {
+      desc: "présent",
+      tense: "present"
+    },
+    {
+      desc: "passé (forme 1)",
+      tense: "past",
+      form: 1
+    },
+    {
+      desc: "passé (forme 2)",
+      tense: "past",
+      form: 2
+    }
+    ]
+  }
+};
+const pronouns = morpho.lopt("Pronoun"),
+  tenses = ["present", "past", "future"];
 
-<div class="tab-content">
-  <div class="tab-pane active" id="one">cont1</div>
-  <div class="tab-pane" id="two">cont2</div>
-  <div class="tab-pane" id="three">cont3</div>
+let conj = function(pronoun, mood, form) {
+  let opts = {
+    mood: mood
+  };
+  opts = Object.assign(opts, pronoun, form);
+  return morpho.conj(verb, opts);
+}
+
+let disp = "display:block";
+let clstab = " active";
+%>
+
+
+<div class="cselector">
+  <% for (fi in forms) {  %>
+    <a class="<%= "atab" + clstab %>" href="#"
+      onclick="openForm(event, '<%= fi %>')"><%= fi %></a>
+    <% clstab = "" %>
+  <% } %>
+</div>
+
+<div class="ccontainer">
+
+  <% for (fi in forms) { let form = forms[fi]; %>
+    <div class="cform hflex" id=<%= fi + "-tab" %> style=<%= disp %> >
+    <% disp = "display:none" %>
+
+      <h1 class="lay-1"><%= i18n.__(fi) %></h1>
+      <% for (ti in form.frm){ let tense = form.frm[ti]; %>
+      <div class="ctense lay-2 lay-big-3">
+        <table>
+          <tr>
+            <th></th>
+            <th><%= i18n.__(tense.desc) %></th>
+          </tr>
+          <% for (pi in pronouns){ let pronoun = pronouns[pi]; %>
+          <tr>
+            <th><%= morpho.goptname("Pronoun", pronoun); %></th>
+            <td><%= conj(pronoun, form.mood, tense); %></td>
+          </tr>
+          <% } %>
+        </table>
+      </div>
+      <% } %>
+    </div>
+  <% } %>
 </div>

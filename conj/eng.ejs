@@ -1,31 +1,35 @@
 <% let forms = {
-    "ind_simp": {
-        desc: "indicative simple",
-        mood: "indicative",
-        aspect: "simple"
-    },
-    "ind_perf": {
-        desc: "indicative perfect",
-        mood: "indicative",
-        aspect: "perfect"
-    },
-    "ind_cont": {
-        desc: "indicative continuous",
-        mood: "indicative",
-        aspect: "continuous"
-    }
+  "simple": {
+    desc: "indicative simple",
+    mood: "indicative",
+    aspect: "simple"
+  },
+  "perfect": {
+    desc: "indicative perfect",
+    mood: "indicative",
+    aspect: "perfect"
+  },
+  "continuous": {
+    desc: "indicative continuous",
+    mood: "indicative",
+    aspect: "continuous"
+  }
 };
-const pronouns = morpho.lopt("Pronoun"),
-    tenses = ["present", "past", "future"];
+const pronouns = {
+  "I": morpho.goptname("Pronoun", "I"),
+  "HSI": morpho.goptname("Pronoun", "It"),
+  "YWT": morpho.goptname("Pronoun", "You")
+},
+  tenses = ["present", "past", "future"];
 
 let conj = function(pronoun, form, tense, voice, negated=0) {
-    let opts = {
-        negated: negated,
-        voice: voice,
-        tense, tense
-    };
-    opts = Object.assign(opts, pronoun, form);
-    return morpho.conj(verb, opts);
+  let opts = {
+    negated: negated,
+    voice: voice,
+    tense, tense
+  };
+  opts = Object.assign(opts, pronoun, form);
+  return morpho.conj(verb, opts);
 }
 
 let disp = "display:block";
@@ -34,48 +38,49 @@ let clstab = " active";
 
 
 <div class="cselector">
-    <% for (fi in forms) { let form = forms[fi]; %>
-        <a class="<%= "atab" + clstab %>" href="#"
-        onclick="openForm(event, '<%= fi %>')"><%= fi %></a>
-        <% clstab = "" %>
-    <% } %>
+  <% for (fi in forms) { let form = forms[fi]; %>
+    <a class="<%= "atab" + clstab %>" href="#"
+      onclick="openForm(event, '<%= fi %>')"><%= fi %></a>
+    <% clstab = "" %>
+  <% } %>
 </div>
 
 <div class="ccontainer">
 
-    <% for (fi in forms) { let form = forms[fi]; %>
-        <div class="cform" id=<%= fi + "-tab" %> style=<%= disp %> >
-        <% disp = "display:none" %>
+  <% for (fi in forms) { let form = forms[fi]; %>
+    <div class="cform" id=<%= fi + "-tab" %> style=<%= disp %> >
+    <% disp = "display:none" %>
 
-            <h1><%= i18n.__(form.desc) %></h1>
-            <% for (ti in tenses){ let tense = tenses[ti]; %>
-            <div class="ctense">
-            <h2><%= i18n.__(tense); %></h2>
-            <table>
-                <tr>
-                    <th></th>
-                    <th colspan="2"><%= i18n.__("active") %></th>
-                    <th colspan="2"><%= i18n.__("passive") %></th>
-                </tr>
-                <tr>
-                    <th></th>
-                    <th><%= i18n.__("affirmative") %></th>
-                    <th><%= i18n.__("negative") %></th>
-                    <th><%= i18n.__("affirmative") %></th>
-                    <th><%= i18n.__("negative") %></th>
-                </tr>
-                <% for (pi in pronouns){ let pronoun = pronouns[pi]; %>
-                    <tr>
-                        <th><%= morpho.goptname("Pronoun", pronoun); %></th>
-                        <td><%= conj(pronoun, form, tense, "active", 0); %></td>
-                        <td><%= conj(pronoun, form, tense, "active", 1); %></td>
-                        <td><%= conj(pronoun, form, tense, "passive", 0); %></td>
-                        <td><%= conj(pronoun, form, tense, "passive", 1); %></td>
-                    </tr>
-                <% } %>
-            </table>
-            </div>
-            <% } %>
-        </div>
-    <% } %>
+      <h1><%= i18n.__(form.desc) %></h1>
+      <div>HSI: He/She/It, YWT: You/We/They</div>
+      <% for (ti in tenses){ let tense = tenses[ti]; %>
+      <div class="ctense">
+        <h2><%= i18n.__(tense); %></h2>
+        <table>
+          <tr>
+            <th></th>
+            <th colspan="2"><%= i18n.__("active") %></th>
+            <th colspan="2"><%= i18n.__("passive") %></th>
+          </tr>
+          <tr>
+            <th></th>
+            <th><%= i18n.__("affirmative") %></th>
+            <th><%= i18n.__("negative") %></th>
+            <th><%= i18n.__("affirmative") %></th>
+            <th><%= i18n.__("negative") %></th>
+          </tr>
+          <% for (pi in pronouns){ let pronoun = pronouns[pi]; %>
+          <tr>
+            <th><%= pi %></th>
+            <td><%= conj(pronoun, form, tense, "active", 0); %></td>
+            <td><%= conj(pronoun, form, tense, "active", 1); %></td>
+            <td><%= conj(pronoun, form, tense, "passive", 0); %></td>
+            <td><%= conj(pronoun, form, tense, "passive", 1); %></td>
+          </tr>
+          <% } %>
+        </table>
+      </div>
+      <% } %>
+    </div>
+  <% } %>
 </div>

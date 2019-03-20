@@ -1,16 +1,85 @@
-<div class="ctab">
-    <h1>{title}</h1>
-    <table dir="rtl">
-        <tr>
+<% let forms = {
+  activev: {
+    voice: "active",
+    frm: [
+    {
+      mood: "indicative",
+      tense: "present"
+    },
+    {
+      mood: "indicative",
+      tense: "past"
+    },
+    {
+      mood: "imperative",
+      tense: "imperative" //just for printing
+    }
+    ]
+  },
+  passivev: {
+    voice: "passive",
+    frm: [
+    {
+      mood: "indicative",
+      tense: "present"
+    },
+    {
+      mood: "indicative",
+      tense: "past"
+    }
+    ]
+  }
+};
+const pronouns = morpho.lopt("Pronoun");
+
+let conj = function(pronoun, voice, form, negated=0) {
+  let opts = {
+    voice: voice,
+    negated: negated
+  };
+  opts = Object.assign(opts, pronoun, form);
+  return morpho.conj(verb, opts);
+}
+
+let disp = "display:block";
+let clstab = " active";
+%>
+
+
+<div class="cselector">
+  <% for (fi in forms) { let form = forms[fi]; %>
+    <a class="<%= "atab" + clstab %>" href="#"
+      onclick="openForm(event, '<%= fi %>')"><%= i18n.__(form.voice) %></a>
+    <% clstab = "" %>
+  <% } %>
+</div>
+
+<div class="ccontainer">
+
+  <% for (fi in forms) { let form = forms[fi]; %>
+    <div class="cform" id=<%= fi + "-tab" %> style=<%= disp %> >
+    <% disp = "display:none" %>
+
+      <h1><%= i18n.__(form.voice) %></h1>
+      <% for (ti in form.frm){ let frm = form.frm[ti]; %>
+      <div class="ctense">
+        <h2><%= i18n.__(frm.tense); %></h2>
+        <table>
+          <tr>
             <th></th>
-            <th colspan="2">{active}</th>
-            <th colspan="2">{passive}</th>
-        </tr>
-        <tr>
-            <th></th>
-            <th>{affirmative}</th>
-            <th>{negative}</th>
-        </tr>
-        
-    </table>
+            <th><%= i18n.__("affirmative") %></th>
+            <th><%= i18n.__("negative") %></th>
+          </tr>
+          <% for (pi in pronouns){ let pronoun = pronouns[pi]; %>
+          <tr>
+            <th><%= morpho.goptname("Pronoun", pronoun); %></th>
+            <td><%= conj(pronoun, form.voice, frm, 0); %></td>
+            <td><%= conj(pronoun, form.voice, frm, 1); %></td>
+          </tr>
+          <% } %>
+        </table>
+      </div>
+      <% } %>
+    </div>
+  <% } %>
 </div>

@@ -72,3 +72,35 @@ a.abutton:hover {
   color: black;
   background: #6500A0;
 }
+
+/*
+RESPONSIVE LAYOUTS
+
+*/
+
+.hflex {
+  display: flex;
+  flex-wrap: wrap;
+  padding: .1em;
+}
+
+.lay-1 {
+  display: inline-block;
+  width: 100%;
+}
+
+.lay-2 {
+  display: inline-block;
+  width: calc(50% - 1em);
+}
+
+@media only screen and (min-width: 1000px) {
+  .lay-big-2 {
+    display: inline-block;
+    width: calc(50% - 1em);
+  }
+  .lay-big-3 {
+    display: inline-block;
+    width: calc(33% - 1em);
+  }
+}
