@@ -28,21 +28,23 @@ let conj = function(pronoun, form, tense, voice, negated=0) {
     return morpho.conj(verb, opts);
 }
 
-let disp = "";
+let disp = "display:block";
+let clstab = " active";
 %>
 
 
 <div class="cselector">
     <% for (fi in forms) { let form = forms[fi]; %>
-        <a class="atab" href="#"
-        onclick="openForm('<%= fi %>')"><%= fi %></a>
+        <a class="<%= "atab" + clstab %>" href="#"
+        onclick="openForm(event, '<%= fi %>')"><%= fi %></a>
+        <% clstab = "" %>
     <% } %>
 </div>
 
 <div class="ccontainer">
 
     <% for (fi in forms) { let form = forms[fi]; %>
-        <div class="cform" id=<%= fi %> style=<%= disp %> >
+        <div class="cform" id=<%= fi + "-tab" %> style=<%= disp %> >
         <% disp = "display:none" %>
 
             <h1><%= i18n.__(form.desc) %></h1>

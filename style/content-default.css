@@ -1,0 +1,58 @@
+
+.cselector {
+  height: 25px;
+  overflow: hidden;
+  /*border: 1px solid #ccc;
+  background-color: #f1f1f1;*/
+}
+
+.cselector a.atab {
+  -webkit-app-region: no-drag;
+  display: inline-block;
+  color: black;
+  font-size: 16px;
+  border:2px solid white;
+  border-radius: 5px;
+  height:30px;
+  text-decoration: none;
+  text-align: center;
+  vertical-align: middle;
+  cursor: pointer;
+}
+
+/* Change background color of buttons on hover */
+.cselector a.atab:hover {
+  background-color: white;
+}
+
+/* Create an active/current tablink class */
+.cselector a.active {
+  background-color: white;
+}
+
+.ccontainer {
+  overflow-y:auto;
+  height: calc(100% - 40px);
+  margin-right: 3px;
+  border: 2px solid white;
+}
+
+.ccontainer::-webkit-scrollbar-track {
+  background-color: black;
+}
+
+.ccontainer::-webkit-scrollbar {
+  width: 12px;
+}
+
+.ccontainer::-webkit-scrollbar-thumb {
+  background-color: white;
+}
+
+.ctense table {
+  width: 100%;
+}
+
+.ctense table th {
+  text-align: left;
+}

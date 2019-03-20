@@ -1,42 +1,31 @@
 #titlebar {
-    text-align: left;
-    margin: 2px;
-    font-size: 20px;
-    font-weight: bold;
+  text-align: left;
+  margin: 2px;
+  font-size: 20px;
+  font-weight: bold;
 }
 
 #titlebar::after {
-    content: "";
-    display:block;
-    height: 50px;
+  content: "";
+  display:block;
+  height: 50px;
 }
 
 #ctrl-btns {
-    text-align: right;
-    padding: 5px;
+  text-align: right;
+  padding: 5px;
 }
 
 #ctrl-btns a {
-    -webkit-app-region: no-drag;
-    display: inline-block;
-    color: #6500A0;
-    font-size: 20px;
-    border:2px solid #6500A0;
-    background: none;
-    width:25px;
-    height:25px;
-    border-radius: 5px;
-    text-decoration: none;
-    text-align: center;
-    vertical-align: middle;
+  width:25px;
 }
 
 #ctrl-btns a:hover {
-    color: black;
-    background: #6500A0;
+  color: black;
+  background: #6500A0;
 }
 
 #icon img {
-    width: 30px;
-    height: 30px;
+  width: 30px;
+  height: 30px;
 }

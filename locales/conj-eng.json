@@ -4,5 +4,10 @@
 	"affirmative": "Affirmative",
 	"negtive": "Negative",
 	"negative": "negative",
-	"indicative simple": "indicative simple"
+	"indicative simple": "indicative simple",
+	"present": "present",
+	"past": "past",
+	"future": "future",
+	"indicative perfect": "indicative perfect",
+	"indicative continuous": "indicative continuous"
 }

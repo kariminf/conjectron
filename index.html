@@ -1,37 +1,41 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta charset="UTF-8">
-    <title>Conjectron</title>
-    <link rel="stylesheet" href="index.css">
+  <meta charset="UTF-8">
+  <title>Conjectron</title>
+  <link rel="stylesheet" href="index.css">
 
 </head>
 <body>
 
-    <div id="content">
-
-        <div id="sidebar">
-            <div id="titlebar"></div>
-            <div id="toolbar"></div>
-            <div id="conjbar"></div>
-        </div>
-        <div id="content-bar"></div>
-
-    </div> <!-- content -->
+  <div id="content">
+    <div id="sidebar">
+      <div id="titlebar"></div>
+      <div id="toolbar"></div>
+      <div id="conjbar"></div>
+    </div>
+    <div id="content-bar"></div>
+  </div> <!-- content -->
 
 <script>
-    require("./titlebar/titlebar");
-    require("./toolbar/toolbar");
-    require("./conjbar/conjbar");
-    require("./index");
-    function openForm(frm) {
-      let i;
-      let divforms = document.getElementsByClassName("cform");
-      for (i = 0; i < divforms.length; i++) {
-        divforms[i].style.display = "none";
-      }
-      document.getElementById(frm).style.display = "block";
+  require("./titlebar/titlebar");
+  require("./toolbar/toolbar");
+  require("./conjbar/conjbar");
+  require("./index");
+  function openForm(evt, frm) {
+    let i;
+    let divforms = document.getElementsByClassName("cform");
+    for (i = 0; i < divforms.length; i++) {
+      divforms[i].style.display = "none";
     }
+
+    let tablinks = document.getElementsByClassName("atab");
+    for (i = 0; i < tablinks.length; i++) {
+      tablinks[i].className = tablinks[i].className.replace(" active", "");
+    }
+    document.getElementById(frm + "-tab").style.display = "block";
+    evt.currentTarget.className += " active";
+  }
 </script>
 
 </html>

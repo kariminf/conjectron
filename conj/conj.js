@@ -25,7 +25,7 @@ i18n.configure({
     prefix: "conj-"
 });
 
-i18n.setLocale("ara");
+i18n.setLocale("eng");
 
 /*ejs.filters.conj = function(obj) {
   return morpho.conjugate(obj.verb,obj.opt);

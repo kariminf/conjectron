@@ -17,24 +17,24 @@ ipcRenderer.send("setLanguage", lang);
 //Load titlebar CSS content
 let cssId = "conjbar-css";
 if (!document.getElementById(cssId)) {
-    let head  = document.getElementsByTagName("head")[0];
-    let link  = document.createElement("link");
-    link.id   = cssId;
-    link.rel  = "stylesheet";
-    link.type = "text/css";
-    link.href = "./conjbar/conjbar.css";
-    link.media = "all";
-    head.appendChild(link);
+  let head  = document.getElementsByTagName("head")[0];
+  let link  = document.createElement("link");
+  link.id   = cssId;
+  link.rel  = "stylesheet";
+  link.type = "text/css";
+  link.href = "./conjbar/conjbar.css";
+  link.media = "all";
+  head.appendChild(link);
 }
 
 let verbin = document.getElementById("verb");
 let langin = document.getElementById("lang");
 
 document.getElementById("conj").addEventListener("click", function (e) {
-    ipcRenderer.send("process", verbin.value);
+  ipcRenderer.send("process", verbin.value);
 });
 
 langin.addEventListener("change", function (e) {
-    console.log("on change");
-    ipcRenderer.send("setLanguage", langin.value);
+  //console.log("on change");
+  ipcRenderer.send("setLanguage", langin.value);
 });

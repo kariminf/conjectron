@@ -10,32 +10,32 @@ document.getElementById("titlebar").innerHTML = content;
 let cssId = "titlebar-css";
 if (!document.getElementById(cssId))
 {
-    let head  = document.getElementsByTagName("head")[0];
-    var link  = document.createElement("link");
-    link.id   = cssId;
-    link.rel  = "stylesheet";
-    link.type = "text/css";
-    link.href = "./titlebar/titlebar.css";
-    link.media = "all";
-    head.appendChild(link);
+  let head  = document.getElementsByTagName("head")[0];
+  var link  = document.createElement("link");
+  link.id   = cssId;
+  link.rel  = "stylesheet";
+  link.type = "text/css";
+  link.href = "./titlebar/titlebar.css";
+  link.media = "all";
+  head.appendChild(link);
 }
 
 document.getElementById("min-btn").addEventListener("click", function (e) {
-       let window = remote.getCurrentWindow();
-       window.minimize();
-  });
+  let window = remote.getCurrentWindow();
+  window.minimize();
+});
 
 document.getElementById("max-btn").addEventListener("click", function (e) {
-       let window = remote.getCurrentWindow();
-       if (!window.isMaximized()) {
-           window.maximize();
-       } else {
-           window.unmaximize();
-       }
-  });
+  let window = remote.getCurrentWindow();
+  if (!window.isMaximized()) {
+    window.maximize();
+  } else {
+    window.unmaximize();
+  }
+});
 
 document.getElementById("close-btn").addEventListener("click", function (e) {
-    settings.setValue("lang", document.getElementById("lang").value);
-      let window = remote.getCurrentWindow();
-      window.close();
-  });
+  settings.setValue("lang", document.getElementById("lang").value);
+  let window = remote.getCurrentWindow();
+  window.close();
+});
