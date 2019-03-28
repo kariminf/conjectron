@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Preferences</title>
+  <style type="text/css">
+  body {
+    background-color: black;
+    color: white;
+  }
+  #content {
+    /*-webkit-app-region: drag;
+    -webkit-user-select: none;*/
+    position:fixed;
+    top: 0;
+    left:0;
+    right: 0;
+    bottom: 50px;
+    padding: .5cm;
+  }
+  #end {
+    position:fixed;
+    bottom: 0;
+    height: 50px;
+    text-align: center;
+  }
+  </style>
+</head>
+<body>
+
+  <div id="content">
+    <table>
+      <tr>
+        <td>Language</td>
+        <td>
+          <select id="p-lang">
+            <option value="ara">العربية</option>
+            <option value="eng">English</option>
+            <option value="fra">Français</option>
+            <option value="jpn">日本語</option>
+          </select>
+        </td>
+      </tr>
+      <tr>
+        <td>Style</td>
+        <td>
+          <select id="p-style">
+            <option value="default">Default</option>
+          </select>
+        </td>
+      </tr>
+      <tr>
+        <td>Native Look</td>
+        <td><input type="checkbox" id="p-native" /></td>
+      </tr>
+    </table>
+  </div> <!-- content -->
+  <div id="end">
+    <button id="close">Close</button>
+  </div>
+
+  <script>
+    require("./pref");
+  </script>
+
+</html>

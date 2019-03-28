@@ -1,7 +1,8 @@
 //const conj = require("./conj/conj");
 const {remote, ipcRenderer} = require("electron");
+const settings = remote.getGlobal("settings");
 
-let out = document.getElementById("content-bar");
+let out = document.getElementById("contentbar");
 
 ipcRenderer.on("process-reply", (event, content) => {
     out.innerHTML = content;
@@ -18,4 +19,8 @@ if (!document.getElementById(cssId)) {
     link.href = "./style/content-default.css";
     link.media = "all";
     head.appendChild(link);
+}
+
+if (settings.value("pnative", false)){
+  document.getElementById("titlebar").style.display = "none";
 }

@@ -10,6 +10,7 @@ settings.init({
 
 global.settings = settings;
 
+
 let win;
 
 function createWindow () {
@@ -17,7 +18,7 @@ function createWindow () {
   win = new BrowserWindow({
     width: 800,
     height: 600,
-    frame: false,
+    frame: settings.value("pnative", false),
     icon: "img/icon/conjectron.png"
   });
 
@@ -25,9 +26,15 @@ function createWindow () {
   win.loadFile("index.html");
 }
 
+conj.setLocale(settings.value("plang", "eng"));
+
 
 ipcMain.on("setLanguage", (event, lang) => {
   conj.setLanguage(lang);
+});
+
+ipcMain.on("setLocale", (event, lang) => {
+  conj.setLocale(lang);
 });
 
 ipcMain.on("process", (event, verb) => {

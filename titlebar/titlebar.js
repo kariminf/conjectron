@@ -35,7 +35,7 @@ document.getElementById("max-btn").addEventListener("click", function (e) {
 });
 
 document.getElementById("close-btn").addEventListener("click", function (e) {
-  settings.setValue("lang", document.getElementById("lang").value);
+  settings.setValue("clang", document.getElementById("lang").value);
   let window = remote.getCurrentWindow();
   window.close();
 });

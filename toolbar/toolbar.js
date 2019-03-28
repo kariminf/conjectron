@@ -26,16 +26,34 @@ if (!document.getElementById(cssId))
 let aboutWin = null;
 
 document.getElementById("about-btn").addEventListener("click", function (e) {
-    if (aboutWin) return;
-    aboutWin = new BrowserWindow({
-        width: 400,
-        height: 400,
-        frame: false,
-        parent: remote.getCurrentWindow(),
-        modal: true,
-        resizable: false
-    });
-    aboutWin.loadFile(__dirname + "/about.html");
-    aboutWin.on("close", function(){ aboutWin = null; });
-    //aboutWin.setAlwaysOnTop(true);
+  if (aboutWin) return;
+  aboutWin = new BrowserWindow({
+    width: 400,
+    height: 400,
+    frame: false,
+    parent: remote.getCurrentWindow(),
+    modal: true,
+    resizable: false
   });
+  aboutWin.loadFile(__dirname + "/about.html");
+  aboutWin.on("close", function(){ aboutWin = null; });
+  //aboutWin.setAlwaysOnTop(true);
+});
+
+
+let prefWin = null;
+
+document.getElementById("pref-btn").addEventListener("click", function (e) {
+  if (prefWin) return;
+  prefWin = new BrowserWindow({
+    width: 600,
+    height: 400,
+    frame: false,
+    parent: remote.getCurrentWindow(),
+    modal: true,
+    resizable: false
+  });
+  prefWin.loadFile(__dirname + "/pref.html");
+  prefWin.on("close", function(){ prefWin = null; });
+  //aboutWin.setAlwaysOnTop(true);
+});
