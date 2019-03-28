@@ -1,16 +1,50 @@
-<div class="ctab">
-    <h1>{title}</h1>
-    <table dir="rtl">
-        <tr>
-            <th></th>
-            <th colspan="2">{active}</th>
-            <th colspan="2">{passive}</th>
-        </tr>
-        <tr>
-            <th></th>
-            <th>{affirmative}</th>
-            <th>{negative}</th>
-        </tr>
-        
-    </table>
+<%
+let forms = morpho.getForms();
+
+let conj = function(form, polite, negated=0) {
+  let opts = {
+    negated: negated,
+    formality: polite
+  };
+  opts = Object.assign(opts, form);
+  return morpho.conj(verb, opts);
+};
+
+const politeness = ["polite", "plain"];
+
+let disp = "display:block";
+let clstab = " active";
+%>
+
+
+<div class="cselector">
+  <a class="atab active" href="#" onclick="openForm(event, 'polite')"><%= i18n.__("polite")%></a>
+  <a class="atab" href="#" onclick="openForm(event, 'plain')"><%= i18n.__("plain")%></a>
+</div>
+
+<div class="ccontainer">
+
+  <% for (pi in politeness) { let polite = politeness[pi]; %>
+    <div class="cform" id=<%= polite + "-tab" %> style=<%= disp %> >
+    <% disp = "display:none" %>
+
+      <h1><%= i18n.__(polite) %></h1>
+      <div class="ctense">
+        <table>
+          <tr>
+            <th><%= i18n.__("form") %></th>
+            <th><%= i18n.__("affirmative") %></th>
+            <th><%= i18n.__("negative") %></th>
+          </tr>
+          <% for (fi in forms){ let form = forms[fi]; %>
+          <tr>
+            <th><%= i18n.__(form.desc.toLowerCase()) %></th>
+            <td><%= conj(form, polite, 0); %></td>
+            <td><%= conj(form, polite, 1); %></td>
+          </tr>
+          <% } %>
+        </table>
+      </div>
+    </div>
+  <% } %>
 </div>

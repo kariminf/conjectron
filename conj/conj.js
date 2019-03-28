@@ -20,14 +20,16 @@ module.exports.setLanguage = function (lang) {
 
 i18n.configure({
     directory: __dirname + "/../locales",
-    prefix: "conj-"
+    prefix: "conj-",
+    defaultLocale: "eng"
 });
 
 module.exports.setLocale = function (lang) {
     i18n.setLocale(lang);
+    //console.log("locale set to: ", lang);
 }
 
-i18n.setLocale("eng");
+//i18n.setLocale("eng");
 
 /*ejs.filters.conj = function(obj) {
   return morpho.conjugate(obj.verb,obj.opt);

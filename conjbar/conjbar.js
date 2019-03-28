@@ -7,12 +7,11 @@ const settings = remote.getGlobal("settings");
 let content = fs.readFileSync(__dirname + "/conjbar.html", "utf8");
 document.getElementById("conjbar").innerHTML = content;
 
-let lang = settings.value("clang", "eng");
+let clang = settings.value("clang", "eng");
 
-document.getElementById("lang").value = lang;
+document.getElementById("lang").value = clang;
 
-ipcRenderer.send("setLanguage", lang);
-
+ipcRenderer.send("setLanguage", clang);
 
 //Load titlebar CSS content
 let cssId = "conjbar-css";
