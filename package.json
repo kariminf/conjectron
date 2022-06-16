@@ -18,7 +18,7 @@
   "author": "Abdelkrime Aries",
   "license": "Apache-2.0",
   "devDependencies": {
-    "electron": "^4.0.2"
+    "electron": "^15.5.5"
   },
   "dependencies": {
     "ejs": "^2.6.1",
