@@ -21,7 +21,7 @@
     "electron": "^18.3.7"
   },
   "dependencies": {
-    "ejs": "^2.6.1",
+    "ejs": "^3.1.7",
     "i18n": "^0.8.3",
     "jslingua": "^0.10.1",
     "settings-store": "^1.4.1"
